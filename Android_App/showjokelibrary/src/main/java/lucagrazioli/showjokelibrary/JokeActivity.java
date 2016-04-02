@@ -1,32 +1,25 @@
-package com.udacity.gradle.builditbigger;
+package lucagrazioli.showjokelibrary;
 
-import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-import com.example.JokeTeller;
+public class JokeActivity extends AppCompatActivity {
 
-import lucagrazioli.showjokelibrary.JokeActivity;
+    public static String JOKE_KEY = "JOKE_KEY";
 
-
-public class MainActivity extends ActionBarActivity {
-    JokeTeller jokeTeller;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_joke);
 
-        this.jokeTeller = new JokeTeller();
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_joke, menu);
         return true;
     }
 
@@ -44,20 +37,4 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-    public void tellJoke(View view){
-
-
-        String joke = jokeTeller.getJoke();
-
-        //Launch intent on JokeActivity
-        Intent intent = new Intent(this, JokeActivity.class);
-        intent.putExtra(JokeActivity.JOKE_KEY,joke);
-
-        startActivity(intent);
-
-        //Toast.makeText(this, joke, Toast.LENGTH_LONG).show();
-    }
-
-
 }
