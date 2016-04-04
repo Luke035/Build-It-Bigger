@@ -20,6 +20,9 @@ import lucagrazioli.showjokelibrary.JokeActivity;
 class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
     private static MyApi myApiService = null;
     private Context context;
+
+
+
     @Override
     protected String doInBackground(Context... params) {
         context = params[0];
